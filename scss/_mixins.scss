@@ -1,0 +1,31 @@
+@mixin flex($dir: row, $js-c: flex-start, $al-it: flex-start, $gap: 0) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $js-c;
+  align-items: $al-it;
+  gap: $gap;
+}
+
+@mixin loading-spinner(
+  $size: 40px,
+  $border-width: 4px,
+  $color: #3498db,
+  $background-color: rgba(0, 0, 0, 0.1),
+  $speed: 0.8s
+) {
+  width: $size;
+  height: $size;
+  border: $border-width solid $background-color;
+  border-top-color: $color;
+  border-radius: 50%;
+  animation: spin $speed linear infinite;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

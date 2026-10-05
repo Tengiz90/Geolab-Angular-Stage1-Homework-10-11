@@ -1,0 +1,83 @@
+@use "reset";
+@use "variables";
+@use "placeholders";
+@use "mixins";
+
+header, main {
+    padding-left: 137px;
+    font-family: variables.$default-font;
+}
+
+header {
+    background-color: variables.$nav-bg-color;
+    font-weight: variables.$nav-font-weight;
+    font-size: variables.$nav-font-size;
+    padding-top: 21px;
+    
+    nav {
+        @include mixins.flex($al-it: center, $gap: 35px);
+        
+    }
+
+    a {
+        color: variables.$nav-txt-color;
+        text-transform: uppercase;
+
+        img {
+            width: 32px;
+        }
+    }
+
+}
+main {
+    background-color: variables.$main-bg-color;
+
+    section {
+        padding-top: 45px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .posts-wrapper {
+        @include mixins.flex($al-it: center, $gap: 35px);
+
+            @media (max-width: 1480px) {
+            @include mixins.flex($dir: column, $al-it: center, $gap: 35px);
+
+        }
+
+        .post {
+            margin-top: 27px;
+
+            &:first-of-type {
+                .background {
+                    background-image: url('../assets/images/beach.png');
+                }
+            }
+
+            &:nth-of-type(2) {
+                .background {
+                    background-image: url('../assets/images/lake.png');
+                }
+            }
+
+            &:nth-of-type(3) {
+                .background {
+                    background-image: url('../assets/images/icebergs.png');
+                }
+            }
+
+            .background {
+                @extend %bg-cover-center;
+                @extend %flex-center;
+                color: white;
+                width: 362px;
+                height: 186px;
+            }
+        }
+
+    }
+}
+
