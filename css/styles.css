@@ -68,6 +68,16 @@ header, main {
   padding-left: 137px;
   font-family: "Roboto", sans-serif;
 }
+@media (max-width: 1480px) {
+  header, main {
+    padding-left: 37px;
+  }
+}
+@media (max-width: 420px) {
+  header, main {
+    padding-left: 17px;
+  }
+}
 
 header {
   background-color: #F1F1F1;
@@ -81,6 +91,13 @@ header nav {
   justify-content: flex-start;
   align-items: center;
   gap: 35px;
+  flex-wrap: wrap;
+}
+@media (max-width: 420px) {
+  header nav {
+    justify-content: center;
+    padding-right: 17px;
+  }
 }
 header a {
   color: black;
@@ -105,18 +122,11 @@ main .posts-wrapper {
   justify-content: flex-start;
   align-items: center;
   gap: 35px;
-}
-@media (max-width: 1480px) {
-  main .posts-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 35px;
-  }
+  margin-top: 27px;
 }
 main .posts-wrapper .post {
-  margin-top: 27px;
+  background-color: white;
+  padding-bottom: 40px;
 }
 main .posts-wrapper .post:first-of-type .background {
   background-image: url("../assets/images/beach.png");
@@ -131,4 +141,47 @@ main .posts-wrapper .post .background {
   color: white;
   width: 362px;
   height: 186px;
+}
+@media (max-width: 1480px) {
+  main .posts-wrapper .post .background {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 362/186;
+  }
+}
+main .posts-wrapper .post .description {
+  font-size: 11px;
+  width: 362px;
+  color: #8A8787;
+  margin-top: 68px;
+  padding-left: 37px;
+  box-sizing: border-box;
+  line-height: 2;
+}
+@media (max-width: 1480px) {
+  main .posts-wrapper .post .description {
+    width: 100%;
+  }
+}
+main .posts-wrapper .post .fa-clock {
+  margin-top: 11px;
+  margin-left: 37px;
+  color: #8A8787;
+}
+main .posts-wrapper .post span {
+  color: #8A8787;
+}
+@media (max-width: 1480px) {
+  main .posts-wrapper .post {
+    width: 95%;
+  }
+}
+@media (max-width: 1480px) {
+  main .posts-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 35px;
+  }
 }/*# sourceMappingURL=styles.css.map */

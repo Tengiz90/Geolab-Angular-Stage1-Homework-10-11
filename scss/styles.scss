@@ -6,6 +6,15 @@
 header, main {
     padding-left: 137px;
     font-family: variables.$default-font;
+
+   @media (max-width: 1480px) {
+        padding-left: 37px;
+    }
+
+    @media (max-width: 420px) {
+        padding-left: 17px;
+    }
+    
 }
 
 header {
@@ -15,8 +24,13 @@ header {
     padding-top: 21px;
     
     nav {
-        @include mixins.flex($al-it: center, $gap: 35px);
-        
+        @include mixins.flex($js-c: flex-start, $al-it: center, $gap: 35px);
+        flex-wrap: wrap;
+
+        @media (max-width: 420px) {
+            justify-content: center;
+            padding-right: 17px;
+        }
     }
 
     a {
@@ -42,15 +56,12 @@ main {
 
     .posts-wrapper {
         @include mixins.flex($al-it: center, $gap: 35px);
+        margin-top: 27px;
 
-            @media (max-width: 1480px) {
-            @include mixins.flex($dir: column, $al-it: center, $gap: 35px);
-
-        }
 
         .post {
-            margin-top: 27px;
-
+        background-color: variables.$trending-bg-color;
+        padding-bottom: 40px;
             &:first-of-type {
                 .background {
                     background-image: url('../assets/images/beach.png');
@@ -73,11 +84,52 @@ main {
                 @extend %bg-cover-center;
                 @extend %flex-center;
                 color: white;
-                width: 362px;
+                width: variables.$trending-width;
                 height: 186px;
+
+                @media (max-width: 1480px) {
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 362 / 186
+                }
+
+            }
+
+            .description {
+                font-size: 11px;
+                width: variables.$trending-width;
+                color: variables.$trending-txt-color;
+                margin-top: 68px;
+                padding-left: 37px;
+                box-sizing: border-box;
+                line-height: 2;
+
+                @media (max-width: 1480px) {
+                    width: 100%;
+                }
+
+            }
+
+            .fa-clock {
+                margin-top: 11px;  
+                margin-left: 37px;
+                color: variables.$trending-txt-color;
+
+            }
+
+            span {
+                color: variables.$trending-txt-color;
+            }
+
+            @media (max-width: 1480px) {
+                width: 95%
             }
         }
 
+        @media (max-width: 1480px) {
+            @include mixins.flex($dir: column, $al-it: flex-start, $gap: 35px);
+            
+        }
     }
 }
 
