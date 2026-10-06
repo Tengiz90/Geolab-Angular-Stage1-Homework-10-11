@@ -173,9 +173,19 @@ main .posts-wrapper .post .fa-clock {
   margin-top: 11px;
   margin-left: 37px;
   color: #8A8787;
+  vertical-align: middle;
 }
 main .posts-wrapper .post span {
+  margin-top: 11px;
+  display: inline-block;
   color: #8A8787;
+  font-size: 11px;
+  vertical-align: middle;
+}
+@media (max-width: 1480px) {
+  main .posts-wrapper .post span {
+    font-size: 18px;
+  }
 }
 @media (max-width: 1480px) {
   main .posts-wrapper .post {

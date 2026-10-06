@@ -123,11 +123,20 @@ main {
                 margin-top: 11px;  
                 margin-left: 37px;
                 color: variables.$trending-txt-color;
+                vertical-align: middle;
 
             }
 
             span {
+                margin-top: 11px; 
+                display: inline-block;
                 color: variables.$trending-txt-color;
+                font-size: 11px;
+                vertical-align: middle;
+
+                @media (max-width: 1480px) {
+                    font-size: 18px;
+                }
             }
 
             @media (max-width: 1480px) {
