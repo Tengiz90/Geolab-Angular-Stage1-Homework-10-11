@@ -2,6 +2,8 @@
 @use "variables";
 @use "placeholders";
 @use "mixins";
+@use "sass:math";
+
 
 header, main {
     padding-left: 137px;
@@ -53,6 +55,7 @@ main {
     h1 {
         font-size: 24px;
         font-weight: 700;
+        text-transform: uppercase;
     }
 
     .posts-wrapper {
@@ -62,6 +65,7 @@ main {
 
         .post {
         background-color: variables.$trending-bg-color;
+        border-radius: variables.$default-border-radius variables.$default-border-radius variables.$default-border-radius variables.$default-border-radius;
         padding-bottom: 40px;
             &:first-of-type {
                 .background {
@@ -87,11 +91,13 @@ main {
                 color: white;
                 width: variables.$trending-width;
                 height: 186px;
+                border-radius: variables.$default-border-radius variables.$default-border-radius 0 0;
+
 
                 @media (max-width: 1480px) {
                     width: 100%;
                     height: auto;
-                    aspect-ratio: 362 / 186
+                    aspect-ratio: #{math.div(variables.$trending-width, 1px)} / 186;
                 }
 
             }
@@ -108,6 +114,7 @@ main {
 
                 @media (max-width: 1480px) {
                     width: 100%;
+                    font-size: 18px;
                 }
 
             }
@@ -133,5 +140,131 @@ main {
             
         }
     }
+
+    .images-wrapper {
+        @include mixins.flex($gap: 20px);
+        margin-top: 35px;
+        padding-bottom: 36px;
+
+        .left {
+            @include mixins.flex($dir: column, $gap: 42px);
+            .background {
+                width: 758px;
+                height: 430px;
+
+                &:first-of-type {
+                    background-image: url('../assets/images/bridge.png');
+                }
+
+                &:nth-of-type(2) {
+                    background-image: url('../assets/images/nature.png');
+                }
+                
+                @media (max-width: 1200px){
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 362 / 186;
+                    align-items: center;
+                }
+            }
+
+            @media (max-width: 1200px){
+                align-items: center;
+                width: 95%;
+            }
+        } 
+
+        .right {
+            @include mixins.flex($dir: column, $gap: 95px);
+            .background {
+                width: 362px;
+                height: 212px;
+
+                &:first-of-type {
+                    background-image: url('../assets/images/forest.png');
+                }
+
+                &:nth-of-type(2) {
+                    background-image: url('../assets/images/elephants.png');
+                }
+
+                &:nth-of-type(3) {
+                    background-image: url('../assets/images/city.png');
+                }
+
+                @media (max-width: 1200px){
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 362 / 186;
+                    align-items: center;
+                }
+            }
+
+            @media (max-width: 1200px){
+                    align-items: center;
+                    width: 95%;
+            }
+        } 
+
+
+        .background {
+            @extend %bg-cover-center;
+            @extend %flex-center;
+            border-radius: variables.$default-border-radius variables.$default-border-radius variables.$default-border-radius variables.$default-border-radius;
+
+            @media (max-width: 700px){
+                gap: 42px; 
+            }
+            
+
+        }
+
+        @media (max-width: 1200px) {
+           @include mixins.flex($dir: column, $gap: 42px);         
+        }
+    }
 }
 
+footer {
+    @include mixins.flex($js-c: center, $gap: 420px);
+    background-color: variables.$footer-bg-color;
+    padding: 59px 0;
+    font-family: variables.$default-font;
+
+    .links {
+        @include mixins.flex($js-c: center, $gap: 100px);
+
+
+        div {
+            @include mixins.flex($dir: column, $js-c: center, $gap: 14px)
+        }
+
+        @media (max-width: 1700px){
+        gap: 42px; 
+        }
+    }
+
+    div {
+        color: white;
+    }
+
+    a {
+        color: variables.$footer-link-color;
+        font-size: 12px;
+        text-transform: capitalize;
+    }
+
+    img {
+        width: variables.$logo-width;
+    }
+
+    @media (max-width: 1500px){
+        gap: 92px; 
+    }
+
+    @media (max-width: 600px){
+    @include mixins.flex($dir: column, $al-it: center, $gap: 32px);
+    gap: 32px; 
+
+    }
+}
